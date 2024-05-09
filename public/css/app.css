@@ -11978,6 +11978,15 @@ body {
   background: linear-gradient(rgb(189, 231, 251) 0%, rgb(248, 253, 254) 100%);
 }
 
+.station {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgb(189, 231, 251) 0%, rgb(248, 253, 254) 100%);
+}
+.station .branding-container img {
+  height: 60px;
+}
+
 .login {
   height: 100vh;
   width: 100%;
@@ -11991,6 +12000,31 @@ body {
   color: #1B82C3;
   line-height: 40px;
   margin-bottom: 0;
+}
+
+.station-heading {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1B82C3;
+  font-family: "Inter", sans-serif;
+}
+
+.station-subheading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000022;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+.bottom-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000022;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  color: #1B82C3;
 }
 
 .subheading {
@@ -12111,4 +12145,41 @@ body {
 .register-block p a {
   font-weight: 500;
   color: #000022;
+}
+
+.camera-btn {
+  display: block;
+  width: 100px;
+  height: 40px;
+  padding: 5px 30px;
+  border-radius: 40px;
+  border: solid 2px #1B82C3;
+  background-color: #fff;
+}
+.camera-btn:hover {
+  background-color: #1B82C3;
+  color: white;
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon-container {
+  height: 80px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.icon-container .icon-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.icon-container .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
