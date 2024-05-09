@@ -20,9 +20,9 @@
                     <h2 class="subheading mt-5">Fahrenheit 88</h2>
 
                     <p class="date">24 MAY 2024 - 2 JUNE 2024</p>
-                    <button class="mt-3 home-btn btn rounded-pill">CLICK TO Register Now</button>
+                    <a href="{{ route('register') }}" class="mt-3 home-btn btn rounded-pill">CLICK TO Register Now</a>
                     <p class="already-register">Already Registered</p>
-                    <button class="home-btn btn rounded-pill">LOGIN HERE</button>
+                    <a href="{{route('login')}}" class="home-btn btn rounded-pill">LOGIN HERE</a>
                 </div>
             </div>
         </div>
