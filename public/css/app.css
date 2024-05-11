@@ -11978,6 +11978,16 @@ body {
   background: linear-gradient(rgb(189, 231, 251) 0%, rgb(248, 253, 254) 100%);
 }
 
+.start {
+  height: 100svh;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(236, 247, 253));
+  position: relative;
+}
+.start .branding-container img {
+  height: 60px;
+}
+
 .station {
   height: 100vh;
   width: 100%;
@@ -11999,6 +12009,15 @@ body {
   font-weight: 700;
   color: #1B82C3;
   line-height: 40px;
+  margin-bottom: 0;
+}
+
+.home-heading {
+  font-family: "Nunito", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1B82C3;
+  line-height: 1.2;
   margin-bottom: 0;
 }
 
@@ -12157,7 +12176,7 @@ body {
   background-color: #fff;
 }
 .camera-btn:hover {
-  background-color: #1B82C3;
+  background-color: #fff;
   color: white;
   opacity: 0.7;
   transition: all 0.3s ease-in-out;
@@ -12182,4 +12201,33 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+}
+
+.station-indicator {
+  width: 109px;
+  color: #1B82C3;
+  text-align: center;
+  padding: 15px;
+  border: solid 1px #1B82C3;
+  border-radius: 17px;
+  margin: 0 auto;
+  background-color: white;
+}
+.station-indicator p {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.station-indicator .station-number {
+  font-weight: 700;
+  font-size: 34px;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .path-image {
+    width: 100%;
+  }
 }

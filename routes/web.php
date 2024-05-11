@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('station/{station}', [StationController::class,'station'])->name('station');
+Route::get('/scan', [StationController::class,'scan'])->name('scan');

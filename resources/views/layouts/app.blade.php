@@ -25,5 +25,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 </body>
 </html>
