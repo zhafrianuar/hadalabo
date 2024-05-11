@@ -15,7 +15,13 @@
                 <img class="icon-bg" src="{{ asset('images/icon-bg.svg') }}" alt="Lock Image">
                 <img class="icon" src="{{ asset('images/station3icon.svg') }}" alt="Lock Image">
             </div>
-            <h1 class="station-heading mt-2">Station {{$station->id}}</h1>
+            <h1 class="station-heading mt-2">
+                @if($station->id == 6)
+                    Gift House
+                @else
+                    Station {{$station->id}}
+                @endif
+            </h1>
             <h2 class="station-subheading">{{$station->name}}</h2>
             <img class="mt-5" src="{{ asset('images/' . $station->id . '.svg') }}" alt="Station Image">
             <a href="" class="camera-btn mx-auto mt-4"><img  src="{{ asset('images/camera.svg') }}" alt=""></a>

@@ -1,22 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid login">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+        <div class="col-12 d-flex justify-content-center mt-5">
+            @include('components.branding')
+        </div>
+        <div class="col-12 mt-5 px-5">
+            
+            <h1 class="text-center login-text mb-4">Register</h1>
+            <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="row mb-3">
-                            <label for="fname" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname" autofocus>
-
+                            <label for="fname" class="label">{{ __('First Name') }}</label>
+                            <div class="col-12">
+                                <input id="fname" type="text" class="input-text form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname" autofocus>
                                 @error('fname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -26,10 +24,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="lname" class="col-md-4 col-form-label text-md-end">{{ __('LastName') }}</label>
+                            <label for="lname" class="label">{{ __('LastName') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
+                            <div class="col-12">
+                                <input id="lname" type="text" class="input-text form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
 
                                 @error('lname')
                                     <span class="invalid-feedback" role="alert">
@@ -40,10 +38,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="label">{{ __('Email Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <div class="col-12">
+                                <input id="email" type="email" class="input-text form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -54,10 +52,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="number" class="col-md-4 col-form-label text-md-end">{{ __('Mobile Number') }}</label>
+                            <label for="number" class="label">{{ __('Mobile Number') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="number" type="text" class="form-control @error('number') is-invalid @enderror" name="number" value="{{ old('number') }}" required autocomplete="number" autofocus>
+                            <div class="col-12">
+                                <input id="number" type="text" class="input-text form-control @error('number') is-invalid @enderror" name="number" value="{{ old('number') }}" required autocomplete="number" autofocus>
 
                                 @error('number')
                                     <span class="invalid-feedback" role="alert">
@@ -67,9 +65,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="number" class="col-md-4 col-form-label text-md-end">{{ __('Where do you find this Event?') }}</label>
-                                <div class="col-md-6">
-                                    <select name="where" class="form-select" aria-label="Default select example">
+                            <label for="number" class="label">{{ __('Where do you find this Event?') }}</label>
+                                <div class="col-12">
+                                    <select name="where" class="input-text form-select" aria-label="Default select example">
                                         <option value="Facebook">Facebook</option>
                                         <option value="Tiktok">Tiktok</option>
                                         <option value="Instagram">Instagram</option>
@@ -79,18 +77,17 @@
                                     </select>
                                 <div>
                         </div>
-
                    
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                        <div class="row mb-0 mt-5">
+                            <div class="col-12">
+                                <button type="submit" class="main-btn btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
+            </form>
+                
+           
         </div>
     </div>
 </div>
