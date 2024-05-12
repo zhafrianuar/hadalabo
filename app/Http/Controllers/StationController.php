@@ -12,8 +12,5 @@ class StationController extends Controller
         return view('station',compact('station'));
     }
 
-    public function scan()
-    {
-        return view('scan');
-    }
+ 
 }

@@ -37,7 +37,7 @@
 <script>
 const mainContent = document.getElementById('mainContent');
 const scannerContainer = document.getElementById('scannerContainer');
-
+var message = '';
 document.getElementById('start-scanner').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -57,9 +57,9 @@ document.getElementById('start-scanner').addEventListener('click', function(even
             qrbox: 250
         },
         qrCodeMessage => {
-            console.log(`QR Code detected: ${qrCodeMessage}`);
+           sendMessage(`${qrCodeMessage}`);
             html5QrCode.stop();
-            window.location.href = qrCodeMessage;
+
         },
         errorMessage => {
             console.log(`QR Code no longer in front of camera.`);
@@ -69,6 +69,33 @@ document.getElementById('start-scanner').addEventListener('click', function(even
         });
 
 });
+
+function sendMessage(message) {
+    // Fetch the CSRF token from the meta tag
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    console.log(message);
+
+    $.ajax({
+        url: '{{ route('process_qr_code') }}', // Using Laravel's route() helper function
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
+        },
+        data: {
+            qrCodeMessage: message
+        },
+        success: function(response) {
+            console.log('QR Code message sent successfully:', response);
+            // Handle success response if needed
+        },
+        error: function(xhr, status, error) {
+            console.error('Error sending QR Code message:', error);
+            // Handle error response if needed
+        }
+    });
+}
+
+
 
 document.getElementById('close').addEventListener('click', function(event) {
     event.preventDefault();

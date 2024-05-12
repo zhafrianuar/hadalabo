@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StationController;
+use App\Http\Controllers\ScanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('station/{station}', [StationController::class,'station'])->name('station');
-Route::get('/scan', [StationController::class,'scan'])->name('scan');
+
+Route::post('/process_qr_code', [ScanController::class, 'scan'])->name('process_qr_code');
+

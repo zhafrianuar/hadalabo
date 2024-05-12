@@ -19,7 +19,7 @@
                     class="mt-3 home-btn btn rounded-pill">Start with Station {{(auth()->user()->station + 1)}} </a>
                 <div class="container mt-5">
                     <div class="station-indicator">
-                        <p class="station-number" class="m-0">0/5</p>
+                        <p class="station-number" class="m-0">{{auth()->user()->station}}/5</p>
                         <p>Station Complete</p>
                     </div>
                 </div>
