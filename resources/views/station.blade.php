@@ -47,7 +47,15 @@
             </div>
             <div class="text-content">
                 <p class="station-text">Station <span class="station_id"></span></p>
-                <p class="message">Check-in Successful</p>
+                <p class="message">
+                    
+                    @if($station->id == 6)
+                        Collect your gift at the counter
+                    @else
+                         Check-in Successful
+                    @endif
+
+                </p>
             </div>
             <div class="button">
                 <a href="{{ route('home') }}" class="btn-okay btn">
@@ -115,7 +123,14 @@ function sendMessage(message) {
         success: function(response) {
             console.log('QR Code message sent successfully:', response);
             // Handle success response if needed
-            $('.station_id').html(message);
+            if(message != 6)
+            {
+                $('.station_id').html(message);
+            }else{
+                // $('.station_id').html('Gift House');
+                $('.station-text').html ('Gift House');
+
+            }
             $(scanCompleteModal).modal('show');
 
         },
