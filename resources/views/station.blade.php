@@ -28,11 +28,38 @@
             <p class="bottom-text mt-2">Scan the QR code at the station to proceed</p>
         </div>
         <div id="scannerContainer" class="scanner-container d-none">
-            <button id="close" class="camera-btn mx-auto mt-4">x</button>
-            <div id="reader" style="width: 300px; height: 300px;"></div>
+            <!-- <button id="close" class="camera-btn mx-auto mt-4">x</button> -->
+            <div id="reader"></div>
+            <div class="mt-3 p-3">
+                <p class="bottom-text text-center">Find the QR code & Scan to check in the station</p>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="scanCompleteModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="content text-center">
+            <div class="image-check">
+            <img class="check" src="{{ asset('images/circleCheck.svg') }}" alt="check">
+            </div>
+            <div class="text-content">
+                <p class="station-text">Station <span class="station_id"></span></p>
+                <p class="message">Check-in Successful</p>
+            </div>
+            <div class="button">
+                <a href="{{ route('home') }}" class="btn-okay btn">
+                    Okay
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
 const mainContent = document.getElementById('mainContent');
@@ -54,7 +81,8 @@ document.getElementById('start-scanner').addEventListener('click', function(even
         },
         {
             fps: 10,
-            qrbox: 250
+            qrbox: 150,
+            aspectRatio: 9 / 16  // Set the aspect ratio to 16:9
         },
         qrCodeMessage => {
            sendMessage(`${qrCodeMessage}`);
@@ -87,6 +115,9 @@ function sendMessage(message) {
         success: function(response) {
             console.log('QR Code message sent successfully:', response);
             // Handle success response if needed
+            $('.station_id').html(message);
+            $(scanCompleteModal).modal('show');
+
         },
         error: function(xhr, status, error) {
             console.error('Error sending QR Code message:', error);
@@ -99,7 +130,6 @@ function sendMessage(message) {
 
 document.getElementById('close').addEventListener('click', function(event) {
     event.preventDefault();
-
     mainContent.classList.remove('d-none');
     scannerContainer.classList.add('d-none');
     html5QrCode.stop();
